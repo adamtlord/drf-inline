@@ -17,11 +17,15 @@ register_inline(singular_name, plural_name, ModelSerializer)
 Syntax: ?inline=model1.submodel2.submodel3,model2,model3
 
 # Example
+```python
 register_inline(POSTCODE, POSTCODES, PostcodeSerializer)
 register_inline(ADDRESS, ADDRESSES, FullAddressSerializer)
 register_inline(USER, USERS, UserSerializer)
 
 request
 /api/users?inline=address.postcode
+
+result - users with inlined addresses, addresses with inlined postcodes
+```
 
 P.S. Based on [silverlogic/djangorestframework-expander](https://github.com/silverlogic/djangorestframework-expander)
